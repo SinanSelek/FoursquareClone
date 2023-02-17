@@ -16,6 +16,8 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
 
     }
     
@@ -62,6 +64,10 @@ class SignUpVC: UIViewController {
             makeAlert(titleInput: "Error", messageInput: "Username/Password?")
         }
         
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func makeAlert(titleInput: String, messageInput: String) {

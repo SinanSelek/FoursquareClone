@@ -18,6 +18,9 @@ class AddPlaceVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         placeImageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
         placeImageView.addGestureRecognizer(gestureRecognizer)
@@ -48,6 +51,10 @@ class AddPlaceVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         }
         
         
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @objc func chooseImage(){
